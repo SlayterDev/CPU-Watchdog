@@ -19,14 +19,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 	
-	self.preferredContentSize = CGSizeMake(0, 100);
-	
 	NSLog(@"Hello world");
-	[SystemInfo widgetInfo].delegate = self;
-	[[SystemInfo widgetInfo] beginTrackingCPU];
+	[SystemInfo standardInfo].delegate = self;
+	[[SystemInfo standardInfo] beginTrackingCPU];
+	
+	self.preferredContentSize = CGSizeMake(0, 50*[[SystemInfo standardInfo] getNumCPUs]);
 	
 	meters = [NSMutableArray array];
-	for (int i = 0; i < [[SystemInfo widgetInfo] getNumCPUs]; i++) {
+	for (int i = 0; i < [[SystemInfo standardInfo] getNumCPUs]; i++) {
 		Meter *meter = [[Meter alloc] initWithFrame:CGRectMake(30, i*50+10, 320, 30)];
 		meter.textAlignment = NSTextAlignmentRight;
 		meter.font = [UIFont fontWithName:@"Courier-Bold" size:18];
@@ -38,6 +38,14 @@
 		cpuLbl.text = [NSString stringWithFormat:@"CPU %d", i];
 		[self.view addSubview:cpuLbl];
 	}
+}
+
+-(void) viewDidDisappear:(BOOL)animated {
+	[[SystemInfo standardInfo] stopTimer];
+}
+
+-(void) viewWillAppear:(BOOL)animated {
+	[[SystemInfo standardInfo] beginTrackingCPU];
 }
 
 -(void) systemInfo:(SystemInfo *)sysinfo didUpdateCPU:(NSArray *)usages {

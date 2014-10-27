@@ -28,7 +28,14 @@
 	return sharedHelper;
 }
 
+-(void) stopTimer {
+	[updateTimer invalidate];
+}
+
 -(void) beginTrackingCPU {
+	if ([updateTimer isValid])
+		return;
+	
 	int mib[2U] = { CTL_HW, HW_NCPU };
 	size_t sizeOfNumCPUs = sizeof(numCPUs);
 	int status = sysctl(mib, 2U, &numCPUs, &sizeOfNumCPUs, NULL, 0U);
@@ -159,8 +166,7 @@
 	
 	(void)time(&now);
 	
-	if (sysctl(mib, 2, &boottime, &size, NULL, 0) != -1 && boottime.tv_sec != 0)
-	{
+	if (sysctl(mib, 2, &boottime, &size, NULL, 0) != -1 && boottime.tv_sec != 0) {
 		uptime = now - boottime.tv_sec;
 	}
 	NSDate *uptimeDate = [NSDate date];

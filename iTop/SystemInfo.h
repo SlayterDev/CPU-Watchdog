@@ -35,6 +35,7 @@
 
 +(SystemInfo *) standardInfo;
 +(SystemInfo *) widgetInfo;
+-(void) stopTimer;
 -(void) beginTrackingCPU;
 -(int) getNumCPUs;
 -(NSArray *) getProcesses;
