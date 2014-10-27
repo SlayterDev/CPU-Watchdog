@@ -14,6 +14,16 @@
 		0279904F19FE8CC900B2E2C4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0279904E19FE8CC900B2E2C4 /* Images.xcassets */; };
 		0279905219FE8CC900B2E2C4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0279905019FE8CC900B2E2C4 /* LaunchScreen.xib */; };
 		0279905E19FE8CC900B2E2C4 /* iTopTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0279905D19FE8CC900B2E2C4 /* iTopTests.m */; };
+		0279906919FE8D2000B2E2C4 /* Meter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0279906819FE8D2000B2E2C4 /* Meter.m */; };
+		0279906C19FE90AF00B2E2C4 /* SystemInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0279906B19FE90AF00B2E2C4 /* SystemInfo.m */; };
+		02F5072119FED9170020C20C /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02F5072019FED9170020C20C /* NotificationCenter.framework */; };
+		02F5072719FED9170020C20C /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F5072619FED9170020C20C /* TodayViewController.m */; };
+		02F5072919FED9170020C20C /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02F5072819FED9170020C20C /* MainInterface.storyboard */; };
+		02F5072C19FED9170020C20C /* iTopWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 02F5071E19FED9170020C20C /* iTopWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		02F5073319FED93F0020C20C /* Meter.h in Sources */ = {isa = PBXBuildFile; fileRef = 0279906719FE8D2000B2E2C4 /* Meter.h */; };
+		02F5073419FED93F0020C20C /* Meter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0279906819FE8D2000B2E2C4 /* Meter.m */; };
+		02F5073519FED93F0020C20C /* SystemInfo.h in Sources */ = {isa = PBXBuildFile; fileRef = 0279906A19FE90AF00B2E2C4 /* SystemInfo.h */; };
+		02F5073619FED93F0020C20C /* SystemInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0279906B19FE90AF00B2E2C4 /* SystemInfo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,7 +34,28 @@
 			remoteGlobalIDString = 0279903D19FE8CC900B2E2C4;
 			remoteInfo = iTop;
 		};
+		02F5072A19FED9170020C20C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0279903619FE8CC900B2E2C4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 02F5071D19FED9170020C20C;
+			remoteInfo = iTopWidget;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		02F5073019FED9170020C20C /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				02F5072C19FED9170020C20C /* iTopWidget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0279903E19FE8CC900B2E2C4 /* iTop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTop.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -40,6 +71,16 @@
 		0279905719FE8CC900B2E2C4 /* iTopTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iTopTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0279905C19FE8CC900B2E2C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0279905D19FE8CC900B2E2C4 /* iTopTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iTopTests.m; sourceTree = "<group>"; };
+		0279906719FE8D2000B2E2C4 /* Meter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Meter.h; sourceTree = "<group>"; };
+		0279906819FE8D2000B2E2C4 /* Meter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Meter.m; sourceTree = "<group>"; };
+		0279906A19FE90AF00B2E2C4 /* SystemInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemInfo.h; sourceTree = "<group>"; };
+		0279906B19FE90AF00B2E2C4 /* SystemInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemInfo.m; sourceTree = "<group>"; };
+		02F5071E19FED9170020C20C /* iTopWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = iTopWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		02F5072019FED9170020C20C /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		02F5072419FED9170020C20C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		02F5072519FED9170020C20C /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
+		02F5072619FED9170020C20C /* TodayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
+		02F5072819FED9170020C20C /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +98,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		02F5071B19FED9170020C20C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02F5072119FED9170020C20C /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -65,6 +114,8 @@
 			children = (
 				0279904019FE8CC900B2E2C4 /* iTop */,
 				0279905A19FE8CC900B2E2C4 /* iTopTests */,
+				02F5072219FED9170020C20C /* iTopWidget */,
+				02F5071F19FED9170020C20C /* Frameworks */,
 				0279903F19FE8CC900B2E2C4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -74,6 +125,7 @@
 			children = (
 				0279903E19FE8CC900B2E2C4 /* iTop.app */,
 				0279905719FE8CC900B2E2C4 /* iTopTests.xctest */,
+				02F5071E19FED9170020C20C /* iTopWidget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -85,6 +137,10 @@
 				0279904619FE8CC900B2E2C4 /* AppDelegate.m */,
 				0279904819FE8CC900B2E2C4 /* ViewController.h */,
 				0279904919FE8CC900B2E2C4 /* ViewController.m */,
+				0279906719FE8D2000B2E2C4 /* Meter.h */,
+				0279906819FE8D2000B2E2C4 /* Meter.m */,
+				0279906A19FE90AF00B2E2C4 /* SystemInfo.h */,
+				0279906B19FE90AF00B2E2C4 /* SystemInfo.m */,
 				0279904B19FE8CC900B2E2C4 /* Main.storyboard */,
 				0279904E19FE8CC900B2E2C4 /* Images.xcassets */,
 				0279905019FE8CC900B2E2C4 /* LaunchScreen.xib */,
@@ -119,6 +175,33 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		02F5071F19FED9170020C20C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				02F5072019FED9170020C20C /* NotificationCenter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		02F5072219FED9170020C20C /* iTopWidget */ = {
+			isa = PBXGroup;
+			children = (
+				02F5072519FED9170020C20C /* TodayViewController.h */,
+				02F5072619FED9170020C20C /* TodayViewController.m */,
+				02F5072819FED9170020C20C /* MainInterface.storyboard */,
+				02F5072319FED9170020C20C /* Supporting Files */,
+			);
+			path = iTopWidget;
+			sourceTree = "<group>";
+		};
+		02F5072319FED9170020C20C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				02F5072419FED9170020C20C /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -129,10 +212,12 @@
 				0279903A19FE8CC900B2E2C4 /* Sources */,
 				0279903B19FE8CC900B2E2C4 /* Frameworks */,
 				0279903C19FE8CC900B2E2C4 /* Resources */,
+				02F5073019FED9170020C20C /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				02F5072B19FED9170020C20C /* PBXTargetDependency */,
 			);
 			name = iTop;
 			productName = iTop;
@@ -157,6 +242,23 @@
 			productReference = 0279905719FE8CC900B2E2C4 /* iTopTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		02F5071D19FED9170020C20C /* iTopWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 02F5072F19FED9170020C20C /* Build configuration list for PBXNativeTarget "iTopWidget" */;
+			buildPhases = (
+				02F5071A19FED9170020C20C /* Sources */,
+				02F5071B19FED9170020C20C /* Frameworks */,
+				02F5071C19FED9170020C20C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iTopWidget;
+			productName = iTopWidget;
+			productReference = 02F5071E19FED9170020C20C /* iTopWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -172,6 +274,9 @@
 					0279905619FE8CC900B2E2C4 = {
 						CreatedOnToolsVersion = 6.0.1;
 						TestTargetID = 0279903D19FE8CC900B2E2C4;
+					};
+					02F5071D19FED9170020C20C = {
+						CreatedOnToolsVersion = 6.1;
 					};
 				};
 			};
@@ -190,6 +295,7 @@
 			targets = (
 				0279903D19FE8CC900B2E2C4 /* iTop */,
 				0279905619FE8CC900B2E2C4 /* iTopTests */,
+				02F5071D19FED9170020C20C /* iTopWidget */,
 			);
 		};
 /* End PBXProject section */
@@ -212,6 +318,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		02F5071C19FED9170020C20C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02F5072919FED9170020C20C /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -220,8 +334,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0279904A19FE8CC900B2E2C4 /* ViewController.m in Sources */,
+				0279906C19FE90AF00B2E2C4 /* SystemInfo.m in Sources */,
 				0279904719FE8CC900B2E2C4 /* AppDelegate.m in Sources */,
 				0279904419FE8CC900B2E2C4 /* main.m in Sources */,
+				0279906919FE8D2000B2E2C4 /* Meter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,6 +349,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		02F5071A19FED9170020C20C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02F5073319FED93F0020C20C /* Meter.h in Sources */,
+				02F5073419FED93F0020C20C /* Meter.m in Sources */,
+				02F5073519FED93F0020C20C /* SystemInfo.h in Sources */,
+				02F5073619FED93F0020C20C /* SystemInfo.m in Sources */,
+				02F5072719FED9170020C20C /* TodayViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -240,6 +368,11 @@
 			isa = PBXTargetDependency;
 			target = 0279903D19FE8CC900B2E2C4 /* iTop */;
 			targetProxy = 0279905819FE8CC900B2E2C4 /* PBXContainerItemProxy */;
+		};
+		02F5072B19FED9170020C20C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 02F5071D19FED9170020C20C /* iTopWidget */;
+			targetProxy = 02F5072A19FED9170020C20C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -395,6 +528,32 @@
 			};
 			name = Release;
 		};
+		02F5072D19FED9170020C20C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = iTopWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		02F5072E19FED9170020C20C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = iTopWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -414,12 +573,22 @@
 				0279906319FE8CC900B2E2C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0279906419FE8CC900B2E2C4 /* Build configuration list for PBXNativeTarget "iTopTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0279906519FE8CC900B2E2C4 /* Debug */,
 				0279906619FE8CC900B2E2C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		02F5072F19FED9170020C20C /* Build configuration list for PBXNativeTarget "iTopWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				02F5072D19FED9170020C20C /* Debug */,
+				02F5072E19FED9170020C20C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
