@@ -39,5 +39,6 @@
 -(void) beginTrackingCPU;
 -(int) getNumCPUs;
 -(NSArray *) getProcesses;
+-(NSDate *) uptime;
 
 @end

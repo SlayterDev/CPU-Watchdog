@@ -10,6 +10,8 @@
 
 @implementation SystemInfo
 
+#define MIB_SIZE 2
+
 +(SystemInfo *) standardInfo {
 	static SystemInfo *sharedHelper = nil;
 	static dispatch_once_t onceToken;
@@ -158,20 +160,20 @@
 }
 
 -(NSDate *) uptime {
-	struct timeval boottime;
-	int mib[2] = {CTL_KERN, KERN_BOOTTIME};
-	size_t size = sizeof(boottime);
-	time_t now;
-	time_t uptime = -1;
+	int mib[MIB_SIZE];
+	size_t size;
+	struct timeval  boottime;
 	
-	(void)time(&now);
-	
-	if (sysctl(mib, 2, &boottime, &size, NULL, 0) != -1 && boottime.tv_sec != 0) {
-		uptime = now - boottime.tv_sec;
+	mib[0] = CTL_KERN;
+	mib[1] = KERN_BOOTTIME;
+	size = sizeof(boottime);
+	if (sysctl(mib, MIB_SIZE, &boottime, &size, NULL, 0) != -1) {
+		// successful call
+		return [NSDate dateWithTimeIntervalSince1970:
+							boottime.tv_sec + boottime.tv_usec / 1.e6];
+	} else {
+		return NULL;
 	}
-	NSDate *uptimeDate = [NSDate date];
-	
-	return uptimeDate;
 }
 
 @end

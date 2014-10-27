@@ -13,6 +13,8 @@
 
 @interface TodayViewController : UIViewController <SystemInfoDelegate> {
 	NSMutableArray *meters;
+	NSDateFormatter *formatter;
+	UILabel *uptimeLbl;
 }
 
 @end
