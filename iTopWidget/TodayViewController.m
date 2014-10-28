@@ -91,10 +91,12 @@
 }
 
 -(void) viewDidDisappear:(BOOL)animated {
+	[super viewDidDisappear:animated];
 	[[SystemInfo standardInfo] stopTimer];
 }
 
 -(void) viewWillAppear:(BOOL)animated {
+	[super viewWillAppear:animated];
 	[[SystemInfo standardInfo] beginTrackingCPU];
 }
 
