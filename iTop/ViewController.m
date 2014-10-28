@@ -26,10 +26,10 @@
 	meters = [NSMutableArray array];
 	NSLog(@"NumCpus: %d", [[SystemInfo standardInfo] getNumCPUs]);
 	for (int i = 0; i < [[SystemInfo standardInfo] getNumCPUs]; i++) {
-		Meter *meter = [[Meter alloc] initWithFrame:CGRectMake(scrSize.width/2-320/2, 100*i+30, 320, 100)];
+		Meter *meter = [[Meter alloc] initWithFrame:CGRectMake(scrSize.width/2-320/2, 70*i+30, 320, 85)];
 		//meter.center = self.view.center;
 		meter.textAlignment = NSTextAlignmentCenter;
-		meter.font = [UIFont fontWithName:@"Courier-Bold" size:24];
+		meter.font = [UIFont fontWithName:@"Courier-Bold" size:20];
 		[meters addObject:meter];
 		[self.view addSubview:meter];
 		
@@ -40,7 +40,7 @@
 	}
 	
 	UILabel *ramSize = [[UILabel alloc] initWithFrame:CGRectMake(scrSize.width/2-320/2, scrSize.height - 75, 320, 50)];
-	ramSize.text = [NSString stringWithFormat:@"Total Ram: %llu", [NSProcessInfo processInfo].physicalMemory/1024/1024];
+	ramSize.text = [NSString stringWithFormat:@"Remaining Ram: %.0fMB/%.0fMB", [[SystemInfo standardInfo] freeMemory], [[SystemInfo standardInfo] totalMemory]];
 	ramSize.textColor = [UIColor whiteColor];
 	[self.view addSubview:ramSize];
 	

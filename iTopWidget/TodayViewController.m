@@ -19,37 +19,54 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 	
-	NSLog(@"Hello world");
 	[SystemInfo standardInfo].delegate = self;
 	[[SystemInfo standardInfo] beginTrackingCPU];
 	
-	self.preferredContentSize = CGSizeMake(0, 50*[[SystemInfo standardInfo] getNumCPUs] + 18);
+	self.preferredContentSize = CGSizeMake(0, 50*([[SystemInfo standardInfo] getNumCPUs]+1) + 18);
 	
 	meters = [NSMutableArray array];
 	CGRect lastRect;
-	for (int i = 0; i < [[SystemInfo standardInfo] getNumCPUs]; i++) {
+	for (int i = 0; i < [[SystemInfo standardInfo] getNumCPUs]+1; i++) {
 		Meter *meter = [[Meter alloc] initWithFrame:CGRectMake(30, i*50+10, 320, 30)];
 		meter.textAlignment = NSTextAlignmentRight;
-		meter.font = [UIFont fontWithName:@"Courier-Bold" size:18];
-		[meters addObject:meter];
+		
+		float fontSize = 18.0;
+		
+		if (IS_IPHONE_5 || IS_IPHONE_4) {
+			fontSize = 12.0;
+			
+			CGRect newFrame = meter.frame;
+			newFrame.origin.x -= 90;
+			meter.frame = newFrame;
+		}
+		
+		meter.font = [UIFont fontWithName:@"Courier-Bold" size:fontSize];
 		[self.view addSubview:meter];
 		
 		UILabel *cpuLbl = [[UILabel alloc] initWithFrame:CGRectMake(0, i*50+10, 70, 30)];
 		cpuLbl.textColor = [UIColor whiteColor];
-		cpuLbl.text = [NSString stringWithFormat:@"CPU %d", i];
+		
+		if (IS_IPHONE_5 || IS_IPHONE_4) {
+			cpuLbl.font = [UIFont systemFontOfSize:14];
+		}
+		
+		if (i < [[SystemInfo standardInfo] getNumCPUs]) {
+			[meters addObject:meter];
+			cpuLbl.text = [NSString stringWithFormat:@"CPU %d", i];
+		} else {
+			ramMeter = meter;
+			cpuLbl.text = [NSString stringWithFormat:@"RAM  "];
+		}
 		[self.view addSubview:cpuLbl];
 		
 		meter.value = 0.0f;
 		[meter updateBar];
 		
-		if (i == [[SystemInfo standardInfo] getNumCPUs]-1)
+		if (i == [[SystemInfo standardInfo] getNumCPUs])
 			lastRect = meter.frame;
 	}
 	
-	formatter = [[NSDateFormatter alloc] init];
-	[formatter setDateFormat:@"MMM dd yyyy hh:mm a"];
 	uptimeLbl = [[UILabel alloc] initWithFrame:CGRectMake(0, lastRect.origin.y+30, 320, 30)];
-	
 	NSCalendar *c = [NSCalendar currentCalendar];
 	
 #pragma clang diagnostic push
@@ -60,9 +77,16 @@
 	
 	
 	uptimeLbl.text = [NSString stringWithFormat:@"Uptime %ld days, %ld hours, %ld minutes, %ld seconds", components.day, components.hour, components.minute, components.second];
-	uptimeLbl.font = [UIFont systemFontOfSize:12];
-	uptimeLbl.textColor = [UIColor whiteColor];
 	uptimeLbl.textAlignment = NSTextAlignmentCenter;
+	
+	float upFontSize = 12.0;
+	if (IS_IPHONE_5 || IS_IPHONE_4) {
+		upFontSize = 11.0;
+		uptimeLbl.textAlignment = NSTextAlignmentLeft;
+	}
+	
+	uptimeLbl.font = [UIFont systemFontOfSize:upFontSize];
+	uptimeLbl.textColor = [UIColor whiteColor];
 	[self.view addSubview:uptimeLbl];
 }
 
@@ -83,6 +107,9 @@
 		meter.value = [usages[i] floatValue];
 		[meter updateBar];
 	}
+	
+	ramMeter.value = ([[SystemInfo standardInfo] totalMemory] - [[SystemInfo standardInfo] freeMemory]) / [[SystemInfo standardInfo] totalMemory];
+	[ramMeter updateBar];
 }
 
 - (void)didReceiveMemoryWarning {

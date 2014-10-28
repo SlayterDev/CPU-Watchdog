@@ -37,7 +37,7 @@
 -(void) updateBar {
 	int numBars = 20 * self.value;
 	
-	if (!numBars && self.value == 0.0)
+	if (!numBars && self.value != 0.0)
 		numBars++;
 	
 	NSString *string = @"[";

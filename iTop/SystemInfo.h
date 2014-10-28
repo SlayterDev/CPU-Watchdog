@@ -38,6 +38,8 @@
 -(void) stopTimer;
 -(void) beginTrackingCPU;
 -(int) getNumCPUs;
+-(CGFloat) totalMemory;
+-(CGFloat) freeMemory;
 -(NSArray *) getProcesses;
 -(NSDate *) uptime;
 

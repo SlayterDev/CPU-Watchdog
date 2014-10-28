@@ -159,6 +159,23 @@
 	return nil;
 }
 
+-(CGFloat) totalMemory {
+	return [[NSProcessInfo processInfo] physicalMemory] / 1024 / 1024;
+}
+
+-(CGFloat) freeMemory {
+	double totalMem = 0.00;
+	vm_statistics64_data_t vmStats;
+	mach_msg_type_number_t infoCount = HOST_VM_INFO_COUNT;
+	kern_return_t kernReturn = host_statistics(mach_host_self(), HOST_VM_INFO, (host_info_t)&vmStats, &infoCount);
+	if (kernReturn != KERN_SUCCESS)
+		return -1;
+	
+	totalMem = ((vm_page_size * vmStats.free_count) / 1024) / 1024;
+	
+	return totalMem;
+}
+
 -(NSDate *) uptime {
 	int mib[MIB_SIZE];
 	size_t size;
