@@ -39,6 +39,9 @@
 		cpuLbl.text = [NSString stringWithFormat:@"CPU %d", i];
 		[self.view addSubview:cpuLbl];
 		
+		meter.value = 0.0f;
+		[meter updateBar];
+		
 		if (i == [[SystemInfo standardInfo] getNumCPUs]-1)
 			lastRect = meter.frame;
 	}
