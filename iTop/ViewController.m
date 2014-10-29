@@ -23,6 +23,8 @@
 	
 	CGSize scrSize = [[UIScreen mainScreen] bounds].size;
 	
+	
+	CGRect lastRect;
 	meters = [NSMutableArray array];
 	NSLog(@"NumCpus: %d", [[SystemInfo standardInfo] getNumCPUs]);
 	for (int i = 0; i < [[SystemInfo standardInfo] getNumCPUs]+2; i++) {
@@ -55,12 +57,22 @@
 		} else {
 			diskMeter = meter;
 			cpuLbl.text = @"Disk ";
+			lastRect = diskMeter.frame;
 		}
 		
 		[self.view addSubview:cpuLbl];
 	}
 	
 	NSLog(@"Processes:\n%@", [[SystemInfo standardInfo] getProcesses]);
+	processes = [[SystemInfo standardInfo] getProcesses];
+	
+	tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, lastRect.origin.y+80, scrSize.width, scrSize.height-(lastRect.origin.y+40)) style:UITableViewStyleGrouped];
+	tableView.dataSource = self;
+	tableView.delegate = self;
+	tableView.backgroundColor = [UIColor clearColor];
+	[self.view addSubview:tableView];
+	[tableView reloadData];
+	[self getIcons];
 }
 
 -(void) systemInfo:(SystemInfo *)sysinfo didUpdateCPU:(NSArray *)usages {
@@ -95,6 +107,79 @@
 - (void)didReceiveMemoryWarning {
 	[super didReceiveMemoryWarning];
 	// Dispose of any resources that can be recreated.
+}
+
+#pragma mark - TableView Stuff
+
+-(void) getIcons {
+	for (NSDictionary *dict in processes) {
+		NSString *urlString = [NSString stringWithFormat:@"https://itunes.apple.com/search?term=%@&country=us&entity=software", dict[@"ProcessName"]];
+		
+		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+			//code executed in the background
+			//2
+			NSData* kivaData = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlString]];
+			//3
+			NSDictionary* json = nil;
+			if (kivaData) {
+				json = [NSJSONSerialization JSONObjectWithData:kivaData options:kNilOptions error:nil];
+				NSLog(@"Response: %@", json);
+			}
+			
+			//4
+			dispatch_async(dispatch_get_main_queue(), ^{
+				//code executed on the main queue
+				//5
+				if (!icons) {
+					icons = [NSMutableArray arrayWithCapacity:processes.count];
+					
+					for (int i = 0; i < processes.count; i++)
+						[icons addObject:@""];
+				}
+				[icons insertObject:json[@"results"][0][@"artworkUrl60"] atIndex:[processes indexOfObject:dict]];
+				[tableView reloadData];
+			});
+			
+		});
+	}
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
+{
+	// Background color
+	view.tintColor = [UIColor blackColor];
+	
+	// Text Color
+	UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
+	[header.textLabel setTextColor:[UIColor whiteColor]];
+	
+	// Another way to set the background color
+	// Note: does not preserve gradient effect of original header
+	// header.contentView.backgroundColor = [UIColor blackColor];
+}
+
+-(NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+	return @"Apps Currently Running";
+}
+
+-(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+	return processes.count;
+}
+
+-(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView {
+	return 1;
+}
+
+-(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+	static NSString *CellIdentifier = @"Cell";
+	UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+	
+	cell.textLabel.text = [[processes objectAtIndex:indexPath.row] objectForKey:@"ProcessName"];
+	
+	if ([icons objectAtIndex:indexPath.row])
+		[cell.imageView setImageWithURL:[NSURL URLWithString:icons[indexPath.row]] placeholderImage:[UIImage imageNamed:@"iphone-128.png"]];
+	
+	return cell;
 }
 
 @end

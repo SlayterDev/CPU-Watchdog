@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SystemInfo.h"
 #import "Meter.h"
+#import "UIImageView+AFNetworking.h"
 
 #define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
 #define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
@@ -21,6 +22,11 @@
 	NSMutableArray *meters;
 	Meter *ramMeter;
 	Meter *diskMeter;
+	
+	NSArray *processes;
+	UITableView *tableView;
+	
+	NSMutableArray *icons;
 }
 
 
