@@ -141,10 +141,10 @@
 				
 				for (long i = nprocess - 1; i >= 0; i--){
 					
-					NSString * processID = [[NSString alloc] initWithFormat:@"%d", process[i].kp_proc.p_pid];
+					NSString *processID = [[NSString alloc] initWithFormat:@"%d", process[i].kp_proc.p_pid];
 					NSString *nice = [NSString stringWithFormat:@"%d", process[i].kp_proc.p_nice];
-					NSString * processName = [[NSString alloc] initWithFormat:@"%s", process[i].kp_proc.p_comm];
-					NSString * messg = [[NSString alloc] initWithFormat:@"%d", process[i].kp_proc.p_stat];
+					NSString *processName = [[NSString alloc] initWithFormat:@"%s", process[i].kp_proc.p_comm];
+					NSString *messg = [[NSString alloc] initWithFormat:@"%d", process[i].kp_proc.p_stat];
 					NSString *ppid = [NSString stringWithFormat:@"%d", process[i].kp_eproc.e_ppid];
 					NSString *prior = [NSString stringWithFormat:@"%d", process[i].kp_proc.p_priority];
 					NSString *flag = [NSString stringWithFormat:@"%d", process[i].kp_proc.p_flag];
