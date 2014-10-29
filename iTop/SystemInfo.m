@@ -142,16 +142,28 @@
 				for (long i = nprocess - 1; i >= 0; i--){
 					
 					NSString * processID = [[NSString alloc] initWithFormat:@"%d", process[i].kp_proc.p_pid];
+					NSString *nice = [NSString stringWithFormat:@"%d", process[i].kp_proc.p_nice];
 					NSString * processName = [[NSString alloc] initWithFormat:@"%s", process[i].kp_proc.p_comm];
+					NSString * messg = [[NSString alloc] initWithFormat:@"%d", process[i].kp_proc.p_stat];
 					NSString *ppid = [NSString stringWithFormat:@"%d", process[i].kp_eproc.e_ppid];
+					NSString *prior = [NSString stringWithFormat:@"%d", process[i].kp_proc.p_priority];
+					NSString *flag = [NSString stringWithFormat:@"%d", process[i].kp_proc.p_flag];
 					
-					NSDictionary * dict = [[NSDictionary alloc] initWithObjects:[NSArray arrayWithObjects:processID, processName, ppid, nil]
-																		forKeys:[NSArray arrayWithObjects:@"ProcessID", @"ProcessName", @"ppid", nil]];
+					NSDictionary * dict = [[NSDictionary alloc] initWithObjects:[NSArray arrayWithObjects:processID, nice, processName, messg, ppid, prior, flag, nil]
+																		forKeys:[NSArray arrayWithObjects:@"ProcessID", @"Nice", @"ProcessName", @"Messg", @"ppid", @"Priority", @"Flag", nil]];
 					[array addObject:dict];
 				}
-				
 				free(process);
-				return array;
+				
+				NSMutableArray *thingsToKeep = [NSMutableArray array];
+				for (NSDictionary *proc in array) {
+					if ([[proc objectForKey:@"Flag"] isEqualToString:@"18436"] || [[proc objectForKey:@"Flag"] isEqualToString:@"16384"])
+						[thingsToKeep addObject:proc];
+					/*else if ([[proc objectForKey:@"Flag"] isEqualToString:@"16388"] && [[proc objectForKey:@"Priority"] isEqualToString:@"24"])
+						[thingsToKeep addObject:proc];*/
+				}
+				
+				return thingsToKeep;
 			}
 		}
 	}

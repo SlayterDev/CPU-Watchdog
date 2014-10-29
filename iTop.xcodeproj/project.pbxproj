@@ -591,6 +591,7 @@
 				02F5072E19FED9170020C20C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

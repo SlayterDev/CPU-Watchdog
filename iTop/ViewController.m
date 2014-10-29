@@ -58,12 +58,29 @@
 	ramSize.text = [NSString stringWithFormat:@"Remaining Ram: %.0fMB/%.0fMB", [[SystemInfo standardInfo] freeMemory], [[SystemInfo standardInfo] totalMemory]];
 	ramSize.textColor = [UIColor whiteColor];
 	
-	if (IS_IPHONE_5 || IS_IPHONE_4)
+	if (IS_IPHONE_5 || IS_IPHONE_4) 
 		ramSize.textAlignment = NSTextAlignmentCenter;
 	
 	[self.view addSubview:ramSize];
 	
 	NSLog(@"Processes:\n%@", [[SystemInfo standardInfo] getProcesses]);
+	
+	UIButton *apps = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 100, 50)];
+	apps.center = self.view.center;
+	[apps setTitle:@"Apps" forState:UIControlStateNormal];
+	[apps setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+	//[apps addTarget:self action:@selector(displayAppList:) forControlEvents:UIControlEventTouchUpInside];
+	[self.view addSubview:apps];
+	
+	UIButton *shortcut = [[UIButton alloc] initWithFrame:CGRectMake(apps.frame.origin.x, apps.frame.origin.y+50, 100, 50)];
+	[shortcut setTitle:@"Shortcut" forState:UIControlStateNormal];
+	[shortcut setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+	[shortcut addTarget:self action:@selector(shortcut:) forControlEvents:UIControlEventTouchUpInside];
+	[self.view addSubview:shortcut];
+}
+
+-(void) shortcut:(id)sender {
+	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"hulu:"]];
 }
 
 -(void) systemInfo:(SystemInfo *)sysinfo didUpdateCPU:(NSArray *)usages {
