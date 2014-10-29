@@ -42,5 +42,6 @@
 -(CGFloat) freeMemory;
 -(NSArray *) getProcesses;
 -(NSDate *) uptime;
+-(NSDictionary *) getDiskInfo;
 
 @end

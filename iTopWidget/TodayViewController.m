@@ -22,11 +22,11 @@
 	[SystemInfo standardInfo].delegate = self;
 	[[SystemInfo standardInfo] beginTrackingCPU];
 	
-	self.preferredContentSize = CGSizeMake(0, 50*([[SystemInfo standardInfo] getNumCPUs]+1) + 18);
+	self.preferredContentSize = CGSizeMake(0, 50*([[SystemInfo standardInfo] getNumCPUs]+2) + 18);
 	
 	meters = [NSMutableArray array];
 	CGRect lastRect;
-	for (int i = 0; i < [[SystemInfo standardInfo] getNumCPUs]+1; i++) {
+	for (int i = 0; i < [[SystemInfo standardInfo] getNumCPUs]+2; i++) {
 		Meter *meter = [[Meter alloc] initWithFrame:CGRectMake(30, i*50+10, 320, 30)];
 		meter.textAlignment = NSTextAlignmentRight;
 		
@@ -53,16 +53,19 @@
 		if (i < [[SystemInfo standardInfo] getNumCPUs]) {
 			[meters addObject:meter];
 			cpuLbl.text = [NSString stringWithFormat:@"CPU %d", i];
-		} else {
+		} else if (i < [[SystemInfo standardInfo] getNumCPUs]+1) {
 			ramMeter = meter;
 			cpuLbl.text = [NSString stringWithFormat:@"RAM  "];
+		} else {
+			diskMeter = meter;
+			cpuLbl.text = @"Disk ";
 		}
 		[self.view addSubview:cpuLbl];
 		
 		meter.value = 0.0f;
 		[meter updateBar];
 		
-		if (i == [[SystemInfo standardInfo] getNumCPUs])
+		if (i == [[SystemInfo standardInfo] getNumCPUs]+1)
 			lastRect = meter.frame;
 	}
 	
@@ -73,10 +76,10 @@
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
 	NSDateComponents* components = [c components:(NSYearCalendarUnit|NSDayCalendarUnit|NSHourCalendarUnit|NSMinuteCalendarUnit|NSSecondCalendarUnit) fromDate:[[SystemInfo standardInfo] uptime] toDate:[NSDate date] options:0] ;
 #pragma clang diagnostic pop
-	NSLog(@"%d years, %d days, %d hours, %d minutes, %d seconds",  components.year, components.day,components.hour, components.minute, components.second);
+	NSLog(@"%ld years, %ld days, %ld hours, %ld minutes, %ld seconds",  (long)components.year, (long)components.day,(long)components.hour, (long)components.minute, (long)components.second);
 	
 	
-	uptimeLbl.text = [NSString stringWithFormat:@"Uptime %d days, %d hours, %d minutes, %d seconds", components.day, components.hour, components.minute, components.second];
+	uptimeLbl.text = [NSString stringWithFormat:@"Uptime %ld days, %ld hours, %ld minutes, %ld seconds", (long)components.day, (long)components.hour, (long)components.minute, (long)components.second];
 	uptimeLbl.textAlignment = NSTextAlignmentCenter;
 	
 	float upFontSize = 12.0;
@@ -112,6 +115,21 @@
 	
 	ramMeter.value = ([[SystemInfo standardInfo] totalMemory] - [[SystemInfo standardInfo] freeMemory]) / [[SystemInfo standardInfo] totalMemory];
 	[ramMeter updateBar];
+	
+	NSDictionary *diskInfo = [[SystemInfo standardInfo] getDiskInfo];
+	
+	if (!diskInfo) {
+		NSLog(@"Unable to get disk sizes");
+	}
+	
+	NSNumber *total = diskInfo[@"TotalBytes"];
+	NSNumber *free = diskInfo[@"FreeBytes"];
+	unsigned long long usedSpace = total.unsignedLongLongValue - free.unsignedLongLongValue;
+	int usedInt = (int)(usedSpace/1024/1024);
+	int totalInt = (int)(total.unsignedLongLongValue/1024/1024);
+	float newVal = (float)usedInt/totalInt;
+	diskMeter.value = newVal;
+	[diskMeter updateBar];
 }
 
 - (void)didReceiveMemoryWarning {

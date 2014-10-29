@@ -17,8 +17,10 @@
 #define IS_IPHONE_6 (IS_IPHONE && [[UIScreen mainScreen] bounds].size.height == 667.0)
 #define IS_IPHONE_6PLUS (IS_IPHONE && [[UIScreen mainScreen] nativeScale] == 3.0)
 
-@interface ViewController : UIViewController <SystemInfoDelegate> {
+@interface ViewController : UIViewController <SystemInfoDelegate, UITableViewDataSource, UITableViewDelegate> {
 	NSMutableArray *meters;
+	Meter *ramMeter;
+	Meter *diskMeter;
 }
 
 

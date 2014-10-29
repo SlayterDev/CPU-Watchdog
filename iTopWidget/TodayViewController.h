@@ -22,6 +22,7 @@
 	NSDateFormatter *formatter;
 	UILabel *uptimeLbl;
 	Meter *ramMeter;
+	Meter *diskMeter;
 }
 
 @end

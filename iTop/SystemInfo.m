@@ -159,8 +159,6 @@
 				for (NSDictionary *proc in array) {
 					if ([[proc objectForKey:@"Flag"] isEqualToString:@"18436"] || [[proc objectForKey:@"Flag"] isEqualToString:@"16384"])
 						[thingsToKeep addObject:proc];
-					/*else if ([[proc objectForKey:@"Flag"] isEqualToString:@"16388"] && [[proc objectForKey:@"Priority"] isEqualToString:@"24"])
-						[thingsToKeep addObject:proc];*/
 				}
 				
 				return thingsToKeep;
@@ -202,6 +200,21 @@
 							boottime.tv_sec + boottime.tv_usec / 1.e6];
 	} else {
 		return NULL;
+	}
+}
+
+-(NSDictionary *) getDiskInfo {
+	NSError *error;
+	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+	NSDictionary *info = [[NSFileManager defaultManager] attributesOfFileSystemForPath:[paths lastObject] error:&error];
+	
+	if (!error) {
+		NSNumber *totalSizeBytes = [info objectForKey:NSFileSystemSize];
+		NSNumber *totalFreeSizeBytes = [info objectForKey:NSFileSystemFreeSize];
+		
+		return @{@"TotalBytes" : totalSizeBytes, @"FreeBytes" : totalFreeSizeBytes};
+	} else {
+		return nil;
 	}
 }
 
