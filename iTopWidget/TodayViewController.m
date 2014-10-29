@@ -73,10 +73,10 @@
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
 	NSDateComponents* components = [c components:(NSYearCalendarUnit|NSDayCalendarUnit|NSHourCalendarUnit|NSMinuteCalendarUnit|NSSecondCalendarUnit) fromDate:[[SystemInfo standardInfo] uptime] toDate:[NSDate date] options:0] ;
 #pragma clang diagnostic pop
-	NSLog(@"%ld years, %ld days, %ld hours, %ld minutes, %ld seconds",  components.year, components.day,components.hour, components.minute, components.second);
+	NSLog(@"%d years, %d days, %d hours, %d minutes, %d seconds",  components.year, components.day,components.hour, components.minute, components.second);
 	
 	
-	uptimeLbl.text = [NSString stringWithFormat:@"Uptime %ld days, %ld hours, %ld minutes, %ld seconds", components.day, components.hour, components.minute, components.second];
+	uptimeLbl.text = [NSString stringWithFormat:@"Uptime %d days, %d hours, %d minutes, %d seconds", components.day, components.hour, components.minute, components.second];
 	uptimeLbl.textAlignment = NSTextAlignmentCenter;
 	
 	float upFontSize = 12.0;

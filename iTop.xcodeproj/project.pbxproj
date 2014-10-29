@@ -20,9 +20,7 @@
 		02F5072719FED9170020C20C /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F5072619FED9170020C20C /* TodayViewController.m */; };
 		02F5072919FED9170020C20C /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02F5072819FED9170020C20C /* MainInterface.storyboard */; };
 		02F5072C19FED9170020C20C /* iTopWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 02F5071E19FED9170020C20C /* iTopWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		02F5073319FED93F0020C20C /* Meter.h in Sources */ = {isa = PBXBuildFile; fileRef = 0279906719FE8D2000B2E2C4 /* Meter.h */; };
 		02F5073419FED93F0020C20C /* Meter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0279906819FE8D2000B2E2C4 /* Meter.m */; };
-		02F5073519FED93F0020C20C /* SystemInfo.h in Sources */ = {isa = PBXBuildFile; fileRef = 0279906A19FE90AF00B2E2C4 /* SystemInfo.h */; };
 		02F5073619FED93F0020C20C /* SystemInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0279906B19FE90AF00B2E2C4 /* SystemInfo.m */; };
 /* End PBXBuildFile section */
 
@@ -353,9 +351,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				02F5073319FED93F0020C20C /* Meter.h in Sources */,
 				02F5073419FED93F0020C20C /* Meter.m in Sources */,
-				02F5073519FED93F0020C20C /* SystemInfo.h in Sources */,
 				02F5073619FED93F0020C20C /* SystemInfo.m in Sources */,
 				02F5072719FED9170020C20C /* TodayViewController.m in Sources */,
 			);
