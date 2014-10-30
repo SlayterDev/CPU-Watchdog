@@ -67,9 +67,13 @@
 	processes = [[SystemInfo standardInfo] getProcesses];
 	processes = [self reverseArray:[processes mutableCopy]];
 	
-	tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, lastRect.origin.y+80, scrSize.width, scrSize.height-(lastRect.origin.y+40)) style:UITableViewStyleGrouped];
+	tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, lastRect.origin.y+80, scrSize.width+20, scrSize.height-(lastRect.origin.y+40)) style:UITableViewStyleGrouped];
 	tableView.dataSource = self;
 	tableView.delegate = self;
+	[tableView setSeparatorColor:[UIColor blackColor]];
+	[tableView setSeparatorInset:UIEdgeInsetsMake(0, 0, 0, 0)];
+	tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+	tableView.contentInset = UIEdgeInsetsMake(0, -20, 0, 0);
 	tableView.backgroundColor = [UIColor clearColor];
 	[self.view addSubview:tableView];
 	[tableView reloadData];
@@ -178,7 +182,7 @@
 }
 
 -(NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-	return @"Apps Currently Running";
+	return @"       Apps Currently Running";
 }
 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -190,7 +194,15 @@
 }
 
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-	return 50.0;
+	return 55.0;
+}
+
+-(void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+	[cell.contentView setBackgroundColor:[UIColor colorWithRed:89.0/255.0 green:92.0/255.0 blue:98.0/255.0 alpha:1.0]];
+	[cell setLayoutMargins:UIEdgeInsetsZero];
+	
+	//[cell setBackgroundColor:[UIColor colorWithRed:34.9f green:36.1f blue:38.4f alpha:1.0]];
+	//[cell.backgroundView setBackgroundColor:[UIColor colorWithRed:34.9f green:36.1f blue:38.4f alpha:1.0]];
 }
 
 -(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -198,10 +210,13 @@
 	UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
 	
 	cell.textLabel.text = [[processes objectAtIndex:indexPath.row] objectForKey:@"ProcessName"];
+	cell.textLabel.textColor = [UIColor whiteColor];
 	
 	cell.imageView.contentMode = UIViewContentModeScaleToFill;
 	cell.imageView.layer.masksToBounds = YES;
 	cell.imageView.layer.cornerRadius = 10.0;
+	
+	//[cell setBackgroundColor:[UIColor colorWithRed:34.9 green:36.1 blue:38.4 alpha:1.0]];
 	
 	if ([[processes objectAtIndex:indexPath.row] objectForKey:@"iconURL"]) {
 		[cell.imageView setImageWithURL:[NSURL URLWithString:[[processes objectAtIndex:indexPath.row] objectForKey:@"iconURL"]] placeholderImage:[UIImage imageNamed:@"iphone-128.png"]];
