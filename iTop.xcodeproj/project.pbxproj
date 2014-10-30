@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0242580F1A027F03000F2D60 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0242580E1A027F03000F2D60 /* QuartzCore.framework */; };
 		0279904419FE8CC900B2E2C4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0279904319FE8CC900B2E2C4 /* main.m */; };
 		0279904719FE8CC900B2E2C4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0279904619FE8CC900B2E2C4 /* AppDelegate.m */; };
 		0279904A19FE8CC900B2E2C4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0279904919FE8CC900B2E2C4 /* ViewController.m */; };
@@ -66,6 +67,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0242580E1A027F03000F2D60 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		0279903E19FE8CC900B2E2C4 /* iTop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0279904219FE8CC900B2E2C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0279904319FE8CC900B2E2C4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0242580F1A027F03000F2D60 /* QuartzCore.framework in Frameworks */,
 				02F5072119FED9170020C20C /* NotificationCenter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -234,6 +237,7 @@
 		02F5071F19FED9170020C20C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0242580E1A027F03000F2D60 /* QuartzCore.framework */,
 				02F5072019FED9170020C20C /* NotificationCenter.framework */,
 			);
 			name = Frameworks;

@@ -65,6 +65,7 @@
 	
 	NSLog(@"Processes:\n%@", [[SystemInfo standardInfo] getProcesses]);
 	processes = [[SystemInfo standardInfo] getProcesses];
+	processes = [self reverseArray:[processes mutableCopy]];
 	
 	tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, lastRect.origin.y+80, scrSize.width, scrSize.height-(lastRect.origin.y+40)) style:UITableViewStyleGrouped];
 	tableView.dataSource = self;
@@ -111,8 +112,21 @@
 
 #pragma mark - TableView Stuff
 
+-(NSMutableArray *) reverseArray:(NSMutableArray *)array {
+	int i = 0;
+	int j = (int)array.count - 1;
+	while (i < j) {
+		[array exchangeObjectAtIndex:i withObjectAtIndex:j];
+		i++;
+		j--;
+	}
+	
+	return array;
+}
+
 -(void) getIcons {
-	for (NSDictionary *dict in processes) {
+	iconCount = 0;
+	for (NSMutableDictionary *dict in processes) {
 		NSString *urlString = [NSString stringWithFormat:@"https://itunes.apple.com/search?term=%@&country=us&entity=software", dict[@"ProcessName"]];
 		
 		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -123,7 +137,7 @@
 			NSDictionary* json = nil;
 			if (kivaData) {
 				json = [NSJSONSerialization JSONObjectWithData:kivaData options:kNilOptions error:nil];
-				NSLog(@"Response: %@", json);
+				//NSLog(@"Response: %@", json);
 			}
 			
 			//4
@@ -136,8 +150,13 @@
 					for (int i = 0; i < processes.count; i++)
 						[icons addObject:@""];
 				}
-				[icons insertObject:json[@"results"][0][@"artworkUrl60"] atIndex:[processes indexOfObject:dict]];
-				[tableView reloadData];
+				if ([json[@"results"] count])
+					[dict setObject:json[@"results"][0][@"artworkUrl512"] forKey:@"iconURL"];
+				
+				
+				iconCount++;
+				if (iconCount == processes.count)
+					[tableView reloadData];
 			});
 			
 		});
@@ -170,14 +189,27 @@
 	return 1;
 }
 
+-(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+	return 50.0;
+}
+
 -(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	static NSString *CellIdentifier = @"Cell";
 	UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
 	
 	cell.textLabel.text = [[processes objectAtIndex:indexPath.row] objectForKey:@"ProcessName"];
 	
-	if ([icons objectAtIndex:indexPath.row])
-		[cell.imageView setImageWithURL:[NSURL URLWithString:icons[indexPath.row]] placeholderImage:[UIImage imageNamed:@"iphone-128.png"]];
+	cell.imageView.contentMode = UIViewContentModeScaleToFill;
+	cell.imageView.layer.masksToBounds = YES;
+	cell.imageView.layer.cornerRadius = 10.0;
+	
+	if ([[processes objectAtIndex:indexPath.row] objectForKey:@"iconURL"]) {
+		[cell.imageView setImageWithURL:[NSURL URLWithString:[[processes objectAtIndex:indexPath.row] objectForKey:@"iconURL"]] placeholderImage:[UIImage imageNamed:@"iphone-128.png"]];
+		
+		[[processes objectAtIndex:indexPath.row] setObject:[NSNumber numberWithBool:YES] forKey:@"imageSet"];
+	} else {
+		cell.imageView.image = [UIImage imageNamed:@"iphone-128.png"];
+	}
 	
 	return cell;
 }

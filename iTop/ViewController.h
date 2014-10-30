@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
 #import "SystemInfo.h"
 #import "Meter.h"
 #import "UIImageView+AFNetworking.h"
@@ -27,6 +28,7 @@
 	UITableView *tableView;
 	
 	NSMutableArray *icons;
+	int iconCount;
 }
 
 

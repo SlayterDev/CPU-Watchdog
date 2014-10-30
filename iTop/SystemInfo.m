@@ -149,7 +149,7 @@
 					NSString *prior = [NSString stringWithFormat:@"%d", process[i].kp_proc.p_priority];
 					NSString *flag = [NSString stringWithFormat:@"%d", process[i].kp_proc.p_flag];
 					
-					NSDictionary * dict = [[NSDictionary alloc] initWithObjects:[NSArray arrayWithObjects:processID, nice, processName, messg, ppid, prior, flag, nil]
+					NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithObjects:[NSArray arrayWithObjects:processID, nice, processName, messg, ppid, prior, flag, nil]
 																		forKeys:[NSArray arrayWithObjects:@"ProcessID", @"Nice", @"ProcessName", @"Messg", @"ppid", @"Priority", @"Flag", nil]];
 					[array addObject:dict];
 				}
