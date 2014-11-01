@@ -17,6 +17,7 @@
 		0279905E19FE8CC900B2E2C4 /* iTopTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0279905D19FE8CC900B2E2C4 /* iTopTests.m */; };
 		0279906919FE8D2000B2E2C4 /* Meter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0279906819FE8D2000B2E2C4 /* Meter.m */; };
 		0279906C19FE90AF00B2E2C4 /* SystemInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0279906B19FE90AF00B2E2C4 /* SystemInfo.m */; };
+		0299FD9E1A04109400DF2A32 /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0299FD9D1A04109400DF2A32 /* CustomCell.m */; };
 		02D9680F1A0183C50006D4CC /* iphone-128.png in Resources */ = {isa = PBXBuildFile; fileRef = 02D9680E1A0183C50006D4CC /* iphone-128.png */; };
 		02D968231A0184BA0006D4CC /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D968111A0184BA0006D4CC /* AFHTTPClient.m */; };
 		02D968241A0184BA0006D4CC /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D968131A0184BA0006D4CC /* AFHTTPRequestOperation.m */; };
@@ -30,7 +31,7 @@
 		02F5072119FED9170020C20C /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02F5072019FED9170020C20C /* NotificationCenter.framework */; };
 		02F5072719FED9170020C20C /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F5072619FED9170020C20C /* TodayViewController.m */; };
 		02F5072919FED9170020C20C /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02F5072819FED9170020C20C /* MainInterface.storyboard */; };
-		02F5072C19FED9170020C20C /* iTopWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 02F5071E19FED9170020C20C /* iTopWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		02F5072C19FED9170020C20C /* CPU WatchdogWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 02F5071E19FED9170020C20C /* CPU WatchdogWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		02F5073419FED93F0020C20C /* Meter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0279906819FE8D2000B2E2C4 /* Meter.m */; };
 		02F5073619FED93F0020C20C /* SystemInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0279906B19FE90AF00B2E2C4 /* SystemInfo.m */; };
 /* End PBXBuildFile section */
@@ -59,7 +60,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				02F5072C19FED9170020C20C /* iTopWidget.appex in Embed App Extensions */,
+				02F5072C19FED9170020C20C /* CPU WatchdogWidget.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -68,7 +69,7 @@
 
 /* Begin PBXFileReference section */
 		0242580E1A027F03000F2D60 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		0279903E19FE8CC900B2E2C4 /* iTop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTop.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0279903E19FE8CC900B2E2C4 /* CPU Watchdog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CPU Watchdog.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0279904219FE8CC900B2E2C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0279904319FE8CC900B2E2C4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0279904519FE8CC900B2E2C4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -78,13 +79,15 @@
 		0279904C19FE8CC900B2E2C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0279904E19FE8CC900B2E2C4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0279905119FE8CC900B2E2C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		0279905719FE8CC900B2E2C4 /* iTopTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iTopTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0279905719FE8CC900B2E2C4 /* CPU WatchdogTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CPU WatchdogTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0279905C19FE8CC900B2E2C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0279905D19FE8CC900B2E2C4 /* iTopTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iTopTests.m; sourceTree = "<group>"; };
 		0279906719FE8D2000B2E2C4 /* Meter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Meter.h; sourceTree = "<group>"; };
 		0279906819FE8D2000B2E2C4 /* Meter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Meter.m; sourceTree = "<group>"; };
 		0279906A19FE90AF00B2E2C4 /* SystemInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemInfo.h; sourceTree = "<group>"; };
 		0279906B19FE90AF00B2E2C4 /* SystemInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemInfo.m; sourceTree = "<group>"; };
+		0299FD9C1A04109400DF2A32 /* CustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCell.h; sourceTree = "<group>"; };
+		0299FD9D1A04109400DF2A32 /* CustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCell.m; sourceTree = "<group>"; };
 		02D9680E1A0183C50006D4CC /* iphone-128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iphone-128.png"; sourceTree = "<group>"; };
 		02D968101A0184BA0006D4CC /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		02D968111A0184BA0006D4CC /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
@@ -105,7 +108,7 @@
 		02D968201A0184BA0006D4CC /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
 		02D968211A0184BA0006D4CC /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		02D968221A0184BA0006D4CC /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
-		02F5071E19FED9170020C20C /* iTopWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = iTopWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		02F5071E19FED9170020C20C /* CPU WatchdogWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "CPU WatchdogWidget.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		02F5072019FED9170020C20C /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		02F5072419FED9170020C20C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		02F5072519FED9170020C20C /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
@@ -154,9 +157,9 @@
 		0279903F19FE8CC900B2E2C4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0279903E19FE8CC900B2E2C4 /* iTop.app */,
-				0279905719FE8CC900B2E2C4 /* iTopTests.xctest */,
-				02F5071E19FED9170020C20C /* iTopWidget.appex */,
+				0279903E19FE8CC900B2E2C4 /* CPU Watchdog.app */,
+				0279905719FE8CC900B2E2C4 /* CPU WatchdogTests.xctest */,
+				02F5071E19FED9170020C20C /* CPU WatchdogWidget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -173,6 +176,8 @@
 				0279906819FE8D2000B2E2C4 /* Meter.m */,
 				0279906A19FE90AF00B2E2C4 /* SystemInfo.h */,
 				0279906B19FE90AF00B2E2C4 /* SystemInfo.m */,
+				0299FD9C1A04109400DF2A32 /* CustomCell.h */,
+				0299FD9D1A04109400DF2A32 /* CustomCell.m */,
 				02D9682C1A0184C00006D4CC /* AFNetworking */,
 				0279904B19FE8CC900B2E2C4 /* Main.storyboard */,
 				0279904E19FE8CC900B2E2C4 /* Images.xcassets */,
@@ -265,9 +270,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0279903D19FE8CC900B2E2C4 /* iTop */ = {
+		0279903D19FE8CC900B2E2C4 /* CPU Watchdog */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0279906119FE8CC900B2E2C4 /* Build configuration list for PBXNativeTarget "iTop" */;
+			buildConfigurationList = 0279906119FE8CC900B2E2C4 /* Build configuration list for PBXNativeTarget "CPU Watchdog" */;
 			buildPhases = (
 				0279903A19FE8CC900B2E2C4 /* Sources */,
 				0279903B19FE8CC900B2E2C4 /* Frameworks */,
@@ -279,14 +284,14 @@
 			dependencies = (
 				02F5072B19FED9170020C20C /* PBXTargetDependency */,
 			);
-			name = iTop;
+			name = "CPU Watchdog";
 			productName = iTop;
-			productReference = 0279903E19FE8CC900B2E2C4 /* iTop.app */;
+			productReference = 0279903E19FE8CC900B2E2C4 /* CPU Watchdog.app */;
 			productType = "com.apple.product-type.application";
 		};
-		0279905619FE8CC900B2E2C4 /* iTopTests */ = {
+		0279905619FE8CC900B2E2C4 /* CPU WatchdogTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0279906419FE8CC900B2E2C4 /* Build configuration list for PBXNativeTarget "iTopTests" */;
+			buildConfigurationList = 0279906419FE8CC900B2E2C4 /* Build configuration list for PBXNativeTarget "CPU WatchdogTests" */;
 			buildPhases = (
 				0279905319FE8CC900B2E2C4 /* Sources */,
 				0279905419FE8CC900B2E2C4 /* Frameworks */,
@@ -297,14 +302,14 @@
 			dependencies = (
 				0279905919FE8CC900B2E2C4 /* PBXTargetDependency */,
 			);
-			name = iTopTests;
+			name = "CPU WatchdogTests";
 			productName = iTopTests;
-			productReference = 0279905719FE8CC900B2E2C4 /* iTopTests.xctest */;
+			productReference = 0279905719FE8CC900B2E2C4 /* CPU WatchdogTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		02F5071D19FED9170020C20C /* iTopWidget */ = {
+		02F5071D19FED9170020C20C /* CPU WatchdogWidget */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 02F5072F19FED9170020C20C /* Build configuration list for PBXNativeTarget "iTopWidget" */;
+			buildConfigurationList = 02F5072F19FED9170020C20C /* Build configuration list for PBXNativeTarget "CPU WatchdogWidget" */;
 			buildPhases = (
 				02F5071A19FED9170020C20C /* Sources */,
 				02F5071B19FED9170020C20C /* Frameworks */,
@@ -314,9 +319,9 @@
 			);
 			dependencies = (
 			);
-			name = iTopWidget;
+			name = "CPU WatchdogWidget";
 			productName = iTopWidget;
-			productReference = 02F5071E19FED9170020C20C /* iTopWidget.appex */;
+			productReference = 02F5071E19FED9170020C20C /* CPU WatchdogWidget.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -333,14 +338,13 @@
 					};
 					0279905619FE8CC900B2E2C4 = {
 						CreatedOnToolsVersion = 6.0.1;
-						TestTargetID = 0279903D19FE8CC900B2E2C4;
 					};
 					02F5071D19FED9170020C20C = {
 						CreatedOnToolsVersion = 6.1;
 					};
 				};
 			};
-			buildConfigurationList = 0279903919FE8CC900B2E2C4 /* Build configuration list for PBXProject "iTop" */;
+			buildConfigurationList = 0279903919FE8CC900B2E2C4 /* Build configuration list for PBXProject "CPU Watchdog" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -353,9 +357,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0279903D19FE8CC900B2E2C4 /* iTop */,
-				0279905619FE8CC900B2E2C4 /* iTopTests */,
-				02F5071D19FED9170020C20C /* iTopWidget */,
+				0279903D19FE8CC900B2E2C4 /* CPU Watchdog */,
+				0279905619FE8CC900B2E2C4 /* CPU WatchdogTests */,
+				02F5071D19FED9170020C20C /* CPU WatchdogWidget */,
 			);
 		};
 /* End PBXProject section */
@@ -408,6 +412,7 @@
 				02D968281A0184BA0006D4CC /* AFPropertyListRequestOperation.m in Sources */,
 				02D968231A0184BA0006D4CC /* AFHTTPClient.m in Sources */,
 				02D968241A0184BA0006D4CC /* AFHTTPRequestOperation.m in Sources */,
+				0299FD9E1A04109400DF2A32 /* CustomCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,12 +439,12 @@
 /* Begin PBXTargetDependency section */
 		0279905919FE8CC900B2E2C4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 0279903D19FE8CC900B2E2C4 /* iTop */;
+			target = 0279903D19FE8CC900B2E2C4 /* CPU Watchdog */;
 			targetProxy = 0279905819FE8CC900B2E2C4 /* PBXContainerItemProxy */;
 		};
 		02F5072B19FED9170020C20C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 02F5071D19FED9170020C20C /* iTopWidget */;
+			target = 02F5071D19FED9170020C20C /* CPU WatchdogWidget */;
 			targetProxy = 02F5072A19FED9170020C20C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -548,7 +553,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = iTop/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "CPU Watchdog";
 			};
 			name = Debug;
 		};
@@ -558,14 +563,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = iTop/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "CPU Watchdog";
 			};
 			name = Release;
 		};
 		0279906519FE8CC900B2E2C4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -576,29 +580,28 @@
 				);
 				INFOPLIST_FILE = iTopTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iTop.app/iTop";
+				PRODUCT_NAME = "CPU WatchdogTests";
 			};
 			name = Debug;
 		};
 		0279906619FE8CC900B2E2C4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = iTopTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iTop.app/iTop";
+				PRODUCT_NAME = "CPU WatchdogTests";
 			};
 			name = Release;
 		};
 		02F5072D19FED9170020C20C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -606,7 +609,7 @@
 				INFOPLIST_FILE = iTopWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "CPU WatchdogWidget";
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -614,10 +617,12 @@
 		02F5072E19FED9170020C20C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = iTopWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "CPU WatchdogWidget";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -625,7 +630,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0279903919FE8CC900B2E2C4 /* Build configuration list for PBXProject "iTop" */ = {
+		0279903919FE8CC900B2E2C4 /* Build configuration list for PBXProject "CPU Watchdog" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0279905F19FE8CC900B2E2C4 /* Debug */,
@@ -634,7 +639,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0279906119FE8CC900B2E2C4 /* Build configuration list for PBXNativeTarget "iTop" */ = {
+		0279906119FE8CC900B2E2C4 /* Build configuration list for PBXNativeTarget "CPU Watchdog" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0279906219FE8CC900B2E2C4 /* Debug */,
@@ -643,7 +648,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0279906419FE8CC900B2E2C4 /* Build configuration list for PBXNativeTarget "iTopTests" */ = {
+		0279906419FE8CC900B2E2C4 /* Build configuration list for PBXNativeTarget "CPU WatchdogTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0279906519FE8CC900B2E2C4 /* Debug */,
@@ -652,7 +657,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		02F5072F19FED9170020C20C /* Build configuration list for PBXNativeTarget "iTopWidget" */ = {
+		02F5072F19FED9170020C20C /* Build configuration list for PBXNativeTarget "CPU WatchdogWidget" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				02F5072D19FED9170020C20C /* Debug */,

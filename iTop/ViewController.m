@@ -60,6 +60,9 @@
 			lastRect = diskMeter.frame;
 		}
 		
+		meter.value = 0.0;
+		[meter updateBar];
+		
 		[self.view addSubview:cpuLbl];
 	}
 	
@@ -78,6 +81,48 @@
 	[self.view addSubview:tableView];
 	[tableView reloadData];
 	[self getIcons];
+	
+	[self informAboutWidget];
+}
+
+-(void) informAboutWidget {
+	NSUserDefaults *userPrefs = [NSUserDefaults standardUserDefaults];
+	if (![[userPrefs objectForKey:@"GotIt"] boolValue]) {
+		[[[UIAlertView alloc] initWithTitle:@"Welcome" message:@"\"CPU Watchdog\" includes a handy widget to track system health right from the Notification Center! Just swipe down to add it!" delegate:self cancelButtonTitle:@"Don't show again" otherButtonTitles:@"Dismiss", nil] show];
+	}
+}
+
+-(void) alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+	if (buttonIndex == alertView.cancelButtonIndex) {
+		NSUserDefaults *userPrefs = [NSUserDefaults standardUserDefaults];
+		[userPrefs setObject:[NSNumber numberWithBool:YES] forKey:@"GotIt"];
+		[userPrefs synchronize];
+	}
+}
+
+-(void) viewWillAppear:(BOOL)animated {
+	[super viewWillAppear:animated];
+	
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(restart) name:UIApplicationDidBecomeActiveNotification object:nil];
+	
+}
+
+-(void) restart {
+	[[SystemInfo standardInfo] beginTrackingCPU];
+	NSLog(@"Processes:\n%@", [[SystemInfo standardInfo] getProcesses]);
+	processes = [[SystemInfo standardInfo] getProcesses];
+	processes = [self reverseArray:[processes mutableCopy]];
+	[tableView reloadData];
+	[self getIcons];
+}
+
+-(void) viewDidDisappear:(BOOL)animated {
+	[super viewDidDisappear:animated];
+	[[SystemInfo standardInfo] stopTimer];
+	
+	[[NSNotificationCenter defaultCenter] removeObserver:self
+													name:UIApplicationDidBecomeActiveNotification
+												  object:nil];
 }
 
 -(void) systemInfo:(SystemInfo *)sysinfo didUpdateCPU:(NSArray *)usages {
@@ -207,7 +252,7 @@
 
 -(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	static NSString *CellIdentifier = @"Cell";
-	UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+	CustomCell *cell = [[CustomCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
 	
 	cell.textLabel.text = [[processes objectAtIndex:indexPath.row] objectForKey:@"ProcessName"];
 	cell.textLabel.textColor = [UIColor whiteColor];

@@ -38,6 +38,12 @@
 			CGRect newFrame = meter.frame;
 			newFrame.origin.x -= 90;
 			meter.frame = newFrame;
+		} else if (IS_IPHONE_6) {
+			fontSize = 16.0;
+			
+			CGRect newFrame = meter.frame;
+			newFrame.origin.x -= 35;
+			meter.frame = newFrame;
 		}
 		
 		meter.font = [UIFont fontWithName:@"Courier-Bold" size:fontSize];
@@ -48,7 +54,8 @@
 		
 		if (IS_IPHONE_5 || IS_IPHONE_4) {
 			cpuLbl.font = [UIFont systemFontOfSize:14];
-		}
+		} else if (IS_IPHONE_6)
+			cpuLbl.font = [UIFont systemFontOfSize:15];
 		
 		if (i < [[SystemInfo standardInfo] getNumCPUs]) {
 			[meters addObject:meter];

@@ -10,6 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "SystemInfo.h"
 #import "Meter.h"
+#import "CustomCell.h"
 #import "UIImageView+AFNetworking.h"
 
 #define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
@@ -19,7 +20,7 @@
 #define IS_IPHONE_6 (IS_IPHONE && [[UIScreen mainScreen] bounds].size.height == 667.0)
 #define IS_IPHONE_6PLUS (IS_IPHONE && [[UIScreen mainScreen] nativeScale] == 3.0)
 
-@interface ViewController : UIViewController <SystemInfoDelegate, UITableViewDataSource, UITableViewDelegate> {
+@interface ViewController : UIViewController <SystemInfoDelegate, UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate> {
 	NSMutableArray *meters;
 	Meter *ramMeter;
 	Meter *diskMeter;

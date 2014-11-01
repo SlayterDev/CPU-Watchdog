@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "0279903D19FE8CC900B2E2C4"
-               BuildableName = "iTop.app"
-               BlueprintName = "iTop"
-               ReferencedContainer = "container:iTop.xcodeproj">
+               BuildableName = "CPU Watchdog.app"
+               BlueprintName = "CPU Watchdog"
+               ReferencedContainer = "container:CPU Watchdog.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "0279905619FE8CC900B2E2C4"
-               BuildableName = "iTopTests.xctest"
-               BlueprintName = "iTopTests"
-               ReferencedContainer = "container:iTop.xcodeproj">
+               BuildableName = "CPU WatchdogTests.xctest"
+               BlueprintName = "CPU WatchdogTests"
+               ReferencedContainer = "container:CPU Watchdog.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "0279905619FE8CC900B2E2C4"
-               BuildableName = "iTopTests.xctest"
-               BlueprintName = "iTopTests"
-               ReferencedContainer = "container:iTop.xcodeproj">
+               BuildableName = "CPU WatchdogTests.xctest"
+               BlueprintName = "CPU WatchdogTests"
+               ReferencedContainer = "container:CPU Watchdog.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0279903D19FE8CC900B2E2C4"
-            BuildableName = "iTop.app"
-            BlueprintName = "iTop"
-            ReferencedContainer = "container:iTop.xcodeproj">
+            BuildableName = "CPU Watchdog.app"
+            BlueprintName = "CPU Watchdog"
+            ReferencedContainer = "container:CPU Watchdog.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -76,9 +76,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0279903D19FE8CC900B2E2C4"
-            BuildableName = "iTop.app"
-            BlueprintName = "iTop"
-            ReferencedContainer = "container:iTop.xcodeproj">
+            BuildableName = "CPU Watchdog.app"
+            BlueprintName = "CPU Watchdog"
+            ReferencedContainer = "container:CPU Watchdog.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -94,9 +94,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0279903D19FE8CC900B2E2C4"
-            BuildableName = "iTop.app"
-            BlueprintName = "iTop"
-            ReferencedContainer = "container:iTop.xcodeproj">
+            BuildableName = "CPU Watchdog.app"
+            BlueprintName = "CPU Watchdog"
+            ReferencedContainer = "container:CPU Watchdog.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
