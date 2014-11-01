@@ -25,6 +25,7 @@
 	
 	
 	CGRect lastRect;
+	CGRect firstRect;
 	meters = [NSMutableArray array];
 	NSLog(@"NumCpus: %d", [[SystemInfo standardInfo] getNumCPUs]);
 	for (int i = 0; i < [[SystemInfo standardInfo] getNumCPUs]+2; i++) {
@@ -51,6 +52,9 @@
 		if (i < [[SystemInfo standardInfo] getNumCPUs]) {
 			[meters addObject:meter];
 			cpuLbl.text = [NSString stringWithFormat:@"CPU %d", i];
+			
+			if (i == 0)
+				firstRect = meter.frame;
 		} else if (i < [[SystemInfo standardInfo] getNumCPUs]+1) {
 			ramMeter = meter;
 			cpuLbl.text = [NSString stringWithFormat:@"RAM  "];
@@ -65,6 +69,12 @@
 		
 		[self.view addSubview:cpuLbl];
 	}
+	
+	UIButton *infoButton = [UIButton buttonWithType:UIButtonTypeInfoLight];
+	infoButton.frame = CGRectMake(7.5, firstRect.origin.y, 30, 30);
+	infoButton.tintColor = [UIColor whiteColor];
+	[infoButton addTarget:self action:@selector(infoButtn:) forControlEvents:UIControlEventTouchUpInside];
+	[self.view addSubview:infoButton];
 	
 	NSLog(@"Processes:\n%@", [[SystemInfo standardInfo] getProcesses]);
 	processes = [[SystemInfo standardInfo] getProcesses];
@@ -83,6 +93,12 @@
 	[self getIcons];
 	
 	[self informAboutWidget];
+}
+
+-(void) infoButtn:(id)sender {
+	AboutController *conroller = [[AboutController alloc] initWithStyle:UITableViewStyleGrouped];
+	UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:conroller];
+	[self presentViewController:nav animated:YES completion:nil];
 }
 
 -(void) informAboutWidget {

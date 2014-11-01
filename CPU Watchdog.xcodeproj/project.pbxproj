@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0242580F1A027F03000F2D60 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0242580E1A027F03000F2D60 /* QuartzCore.framework */; };
+		024E0FCD1A0524B1006EA3BE /* iTunesArtwork1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 024E0FCC1A0524B1006EA3BE /* iTunesArtwork1024.png */; };
+		024E0FD01A05278C006EA3BE /* AboutController.m in Sources */ = {isa = PBXBuildFile; fileRef = 024E0FCF1A05278C006EA3BE /* AboutController.m */; };
+		024E0FD21A052798006EA3BE /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 024E0FD11A052798006EA3BE /* MessageUI.framework */; };
 		0279904419FE8CC900B2E2C4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0279904319FE8CC900B2E2C4 /* main.m */; };
 		0279904719FE8CC900B2E2C4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0279904619FE8CC900B2E2C4 /* AppDelegate.m */; };
 		0279904A19FE8CC900B2E2C4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0279904919FE8CC900B2E2C4 /* ViewController.m */; };
@@ -69,6 +72,10 @@
 
 /* Begin PBXFileReference section */
 		0242580E1A027F03000F2D60 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		024E0FCC1A0524B1006EA3BE /* iTunesArtwork1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork1024.png; sourceTree = "<group>"; };
+		024E0FCE1A05278C006EA3BE /* AboutController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutController.h; sourceTree = "<group>"; };
+		024E0FCF1A05278C006EA3BE /* AboutController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutController.m; sourceTree = "<group>"; };
+		024E0FD11A052798006EA3BE /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		0279903E19FE8CC900B2E2C4 /* CPU Watchdog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CPU Watchdog.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0279904219FE8CC900B2E2C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0279904319FE8CC900B2E2C4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -135,6 +142,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				024E0FD21A052798006EA3BE /* MessageUI.framework in Frameworks */,
 				0242580F1A027F03000F2D60 /* QuartzCore.framework in Frameworks */,
 				02F5072119FED9170020C20C /* NotificationCenter.framework in Frameworks */,
 			);
@@ -167,6 +175,7 @@
 		0279904019FE8CC900B2E2C4 /* iTop */ = {
 			isa = PBXGroup;
 			children = (
+				024E0FCC1A0524B1006EA3BE /* iTunesArtwork1024.png */,
 				02D9680E1A0183C50006D4CC /* iphone-128.png */,
 				0279904519FE8CC900B2E2C4 /* AppDelegate.h */,
 				0279904619FE8CC900B2E2C4 /* AppDelegate.m */,
@@ -178,6 +187,8 @@
 				0279906B19FE90AF00B2E2C4 /* SystemInfo.m */,
 				0299FD9C1A04109400DF2A32 /* CustomCell.h */,
 				0299FD9D1A04109400DF2A32 /* CustomCell.m */,
+				024E0FCE1A05278C006EA3BE /* AboutController.h */,
+				024E0FCF1A05278C006EA3BE /* AboutController.m */,
 				02D9682C1A0184C00006D4CC /* AFNetworking */,
 				0279904B19FE8CC900B2E2C4 /* Main.storyboard */,
 				0279904E19FE8CC900B2E2C4 /* Images.xcassets */,
@@ -242,6 +253,7 @@
 		02F5071F19FED9170020C20C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				024E0FD11A052798006EA3BE /* MessageUI.framework */,
 				0242580E1A027F03000F2D60 /* QuartzCore.framework */,
 				02F5072019FED9170020C20C /* NotificationCenter.framework */,
 			);
@@ -369,6 +381,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				024E0FCD1A0524B1006EA3BE /* iTunesArtwork1024.png in Resources */,
 				02D9680F1A0183C50006D4CC /* iphone-128.png in Resources */,
 				0279904D19FE8CC900B2E2C4 /* Main.storyboard in Resources */,
 				0279905219FE8CC900B2E2C4 /* LaunchScreen.xib in Resources */,
@@ -409,6 +422,7 @@
 				0279904419FE8CC900B2E2C4 /* main.m in Sources */,
 				02D968261A0184BA0006D4CC /* AFJSONRequestOperation.m in Sources */,
 				0279906919FE8D2000B2E2C4 /* Meter.m in Sources */,
+				024E0FD01A05278C006EA3BE /* AboutController.m in Sources */,
 				02D968281A0184BA0006D4CC /* AFPropertyListRequestOperation.m in Sources */,
 				02D968231A0184BA0006D4CC /* AFHTTPClient.m in Sources */,
 				02D968241A0184BA0006D4CC /* AFHTTPRequestOperation.m in Sources */,

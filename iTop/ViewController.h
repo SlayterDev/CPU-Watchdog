@@ -12,6 +12,7 @@
 #import "Meter.h"
 #import "CustomCell.h"
 #import "UIImageView+AFNetworking.h"
+#import "AboutController.h"
 
 #define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
 #define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
