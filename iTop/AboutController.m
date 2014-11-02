@@ -26,7 +26,25 @@
 	self.navigationItem.title = @"About";
 	
 	UIBarButtonItem *done = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneTapped:)];
+	done.tintColor = [UIColor whiteColor];
 	self.navigationItem.rightBarButtonItem = done;
+	
+	[self.tableView setBackgroundColor:[UIColor colorWithRed:39.0/255.0 green:40.0/255.0 blue:33.0/255.0 alpha:1.0]];
+	[self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:89.0/255.0 green:92.0/255.0 blue:98.0/255.0 alpha:1.0]];
+	
+	[self.tableView setSeparatorColor:[UIColor blackColor]];
+	[self.tableView setSeparatorInset:UIEdgeInsetsZero];
+	//self.tableView.contentInset = UIEdgeInsetsMake(0, -20, 0, 0);
+}
+
+-(void) viewDidLayoutSubviews {
+	if ([self.tableView respondsToSelector:@selector(setSeparatorInset:)]) {
+		[self.tableView setSeparatorInset:UIEdgeInsetsZero];
+	}
+	
+	if ([self.tableView respondsToSelector:@selector(setLayoutMargins:)]) {
+		[self.tableView setLayoutMargins:UIEdgeInsetsZero];
+	}
 }
 
 -(void) doneTapped:(id)sender {
@@ -47,18 +65,33 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 5;
+    return 4;
 }
 
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 	return 55.0f;
 }
 
+-(void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+	[cell.contentView setBackgroundColor:[UIColor colorWithRed:89.0/255.0 green:92.0/255.0 blue:98.0/255.0 alpha:1.0]];
+	
+	if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
+		[cell setSeparatorInset:UIEdgeInsetsZero];
+	}
+	
+	if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
+		[cell setLayoutMargins:UIEdgeInsetsZero];
+	}
+	
+}
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	static NSString *CellIdentifier = @"Cell";
 	UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
 	
 	cell.textLabel.textAlignment = NSTextAlignmentCenter;
+	cell.textLabel.textColor = [UIColor whiteColor];
 	
 	switch (indexPath.row) {
 		case 0:
@@ -72,9 +105,6 @@
 			break;
 		case 3:
 			cell.textLabel.text = @"Email the developer";
-			break;
-		case 4:
-			cell.textLabel.text = @"Some icons by icons8";
 			break;
 		default:
 			break;
@@ -91,7 +121,7 @@
 			[self shareApp];
 			break;
 		case 1:
-			[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://itunes.apple.com/us/app/make-a-meme+/id513930217?ls=1&mt=8"]];
+			[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://itunes.apple.com/us/app/cpu-watchdog/id936276895?ls=1&mt=8"]];
 			break;
 		case 2:
 			[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://itunes.com/apps/slayterdevelopment"]];
@@ -99,16 +129,13 @@
 		case 3:
 			[self emailDeveloper];
 			break;
-		case 4:
-			[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://icons8.com"]];
-			break;
 		default:
 			break;
 	}
 }
 
 -(void) shareApp {
-	NSURL *url = [NSURL URLWithString:@"http://itunes.apple.com/us/app/make-a-meme+/id513930217?ls=1&mt=8"];
+	NSURL *url = [NSURL URLWithString:@"http://itunes.apple.com/us/app/cpu-watchdog/id936276895?ls=1&mt=8"];
 	NSArray *items = @[url];
 	
 	UIActivityViewController *act = [[UIActivityViewController alloc] initWithActivityItems:items applicationActivities:nil];

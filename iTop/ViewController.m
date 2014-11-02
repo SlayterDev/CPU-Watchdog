@@ -71,7 +71,7 @@
 	}
 	
 	UIButton *infoButton = [UIButton buttonWithType:UIButtonTypeInfoLight];
-	infoButton.frame = CGRectMake(7.5, firstRect.origin.y, 30, 30);
+	infoButton.frame = CGRectMake(scrSize.width-35, firstRect.origin.y, 30, 30);
 	infoButton.tintColor = [UIColor whiteColor];
 	[infoButton addTarget:self action:@selector(infoButtn:) forControlEvents:UIControlEventTouchUpInside];
 	[self.view addSubview:infoButton];
@@ -98,6 +98,10 @@
 -(void) infoButtn:(id)sender {
 	AboutController *conroller = [[AboutController alloc] initWithStyle:UITableViewStyleGrouped];
 	UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:conroller];
+	
+	if (IS_IPAD)
+		nav.modalPresentationStyle = UIModalPresentationFormSheet;
+	
 	[self presentViewController:nav animated:YES completion:nil];
 }
 
