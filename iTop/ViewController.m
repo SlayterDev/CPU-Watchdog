@@ -80,17 +80,19 @@
 	processes = [[SystemInfo standardInfo] getProcesses];
 	processes = [self reverseArray:[processes mutableCopy]];
 	
-	tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, lastRect.origin.y+80, scrSize.width+20, scrSize.height-(lastRect.origin.y+40)) style:UITableViewStyleGrouped];
-	tableView.dataSource = self;
-	tableView.delegate = self;
-	[tableView setSeparatorColor:[UIColor blackColor]];
-	[tableView setSeparatorInset:UIEdgeInsetsMake(0, 0, 0, 0)];
-	tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
-	tableView.contentInset = UIEdgeInsetsMake(0, -20, 0, 0);
-	tableView.backgroundColor = [UIColor clearColor];
-	[self.view addSubview:tableView];
-	[tableView reloadData];
-	[self getIcons];
+	//if (!(IS_IPHONE_5 || IS_IPHONE_4)) {
+		tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, lastRect.origin.y+80, scrSize.width+20, scrSize.height-(lastRect.origin.y+40)) style:UITableViewStyleGrouped];
+		tableView.dataSource = self;
+		tableView.delegate = self;
+		[tableView setSeparatorColor:[UIColor blackColor]];
+		[tableView setSeparatorInset:UIEdgeInsetsMake(0, 0, 0, 0)];
+		tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+		tableView.contentInset = UIEdgeInsetsMake(0, -20, 0, 0);
+		tableView.backgroundColor = [UIColor clearColor];
+		[self.view addSubview:tableView];
+		[tableView reloadData];
+		//[self getIcons];
+	//}
 	
 	[self informAboutWidget];
 }
@@ -129,11 +131,13 @@
 
 -(void) restart {
 	[[SystemInfo standardInfo] beginTrackingCPU];
-	NSLog(@"Processes:\n%@", [[SystemInfo standardInfo] getProcesses]);
-	processes = [[SystemInfo standardInfo] getProcesses];
-	processes = [self reverseArray:[processes mutableCopy]];
-	[tableView reloadData];
-	[self getIcons];
+	
+	//if (!(IS_IPHONE_5 || IS_IPHONE_4)) {
+		processes = [[SystemInfo standardInfo] getProcesses];
+		processes = [self reverseArray:[processes mutableCopy]];
+		[tableView reloadData];
+	//	[self getIcons];
+	//}
 }
 
 -(void) viewDidDisappear:(BOOL)animated {
@@ -170,7 +174,13 @@
 	int usedInt = (int)(usedSpace/1024/1024);
 	int totalInt = (int)(total.unsignedLongLongValue/1024/1024);
 	float newVal = (float)usedInt/totalInt;
+	
+	NSLog(@"%d/%d", usedInt, totalInt);
+	
 	diskMeter.value = newVal;
+	
+	if (newVal < 0)
+		newVal = 0.15;
 	[diskMeter updateBar];
 }
 
@@ -273,6 +283,8 @@
 -(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	static NSString *CellIdentifier = @"Cell";
 	CustomCell *cell = [[CustomCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+	
+	cell.selectionStyle = UITableViewCellSelectionStyleNone;
 	
 	cell.textLabel.text = [[processes objectAtIndex:indexPath.row] objectForKey:@"ProcessName"];
 	cell.textLabel.textColor = [UIColor whiteColor];

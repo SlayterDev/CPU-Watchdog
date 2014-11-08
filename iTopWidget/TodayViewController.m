@@ -136,6 +136,11 @@
 	int totalInt = (int)(total.unsignedLongLongValue/1024/1024);
 	float newVal = (float)usedInt/totalInt;
 	diskMeter.value = newVal;
+	
+	
+	if (newVal < 0)
+		newVal = 0.15;
+	
 	[diskMeter updateBar];
 }
 
