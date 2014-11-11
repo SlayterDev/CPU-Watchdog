@@ -25,6 +25,8 @@
 	
 	self.navigationItem.title = @"About";
 	
+	[self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+	
 	UIBarButtonItem *done = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneTapped:)];
 	done.tintColor = [UIColor whiteColor];
 	self.navigationItem.rightBarButtonItem = done;
