@@ -69,6 +69,7 @@
 		
 		[self.view addSubview:cpuLbl];
 	}
+	[[SystemInfo standardInfo] forceUpdate];
 	
 	UIButton *infoButton = [UIButton buttonWithType:UIButtonTypeInfoLight];
 	infoButton.frame = CGRectMake(scrSize.width-35, firstRect.origin.y, 30, 30);
@@ -175,12 +176,9 @@
 	int totalInt = (int)(total.unsignedLongLongValue/1024/1024);
 	float newVal = (float)usedInt/totalInt;
 	
-	NSLog(@"%d/%d", usedInt, totalInt);
-	
 	diskMeter.value = newVal;
-	
 	if (newVal < 0)
-		newVal = 0.15;
+		diskMeter.value = -newVal;
 	[diskMeter updateBar];
 }
 

@@ -47,7 +47,11 @@
 	CPUUsageLock = [[NSLock alloc] init];
 	
 	NSLog(@"Attempting to set timer");
-	updateTimer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(updateCPU:) userInfo:nil repeats:YES];
+	updateTimer = [NSTimer scheduledTimerWithTimeInterval:2.25 target:self selector:@selector(updateCPU:) userInfo:nil repeats:YES];
+}
+
+-(void) forceUpdate {
+	[self updateCPU:updateTimer];
 }
 
 -(void) updateCPU:(NSTimer *)timer {

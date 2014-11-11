@@ -37,6 +37,7 @@
 +(SystemInfo *) widgetInfo;
 -(void) stopTimer;
 -(void) beginTrackingCPU;
+-(void) forceUpdate;
 -(int) getNumCPUs;
 -(CGFloat) totalMemory;
 -(CGFloat) freeMemory;

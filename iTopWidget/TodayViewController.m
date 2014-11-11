@@ -75,6 +75,7 @@
 		if (i == [[SystemInfo standardInfo] getNumCPUs]+1)
 			lastRect = meter.frame;
 	}
+	[[SystemInfo standardInfo] forceUpdate];
 	
 	uptimeLbl = [[UILabel alloc] initWithFrame:CGRectMake(0, lastRect.origin.y+30, 320, 30)];
 	NSCalendar *c = [NSCalendar currentCalendar];
@@ -135,12 +136,10 @@
 	int usedInt = (int)(usedSpace/1024/1024);
 	int totalInt = (int)(total.unsignedLongLongValue/1024/1024);
 	float newVal = (float)usedInt/totalInt;
+	
 	diskMeter.value = newVal;
-	
-	
 	if (newVal < 0)
-		newVal = 0.15;
-	
+		diskMeter.value = -newVal;
 	[diskMeter updateBar];
 }
 
