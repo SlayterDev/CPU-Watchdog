@@ -77,6 +77,13 @@
 	[infoButton addTarget:self action:@selector(infoButtn:) forControlEvents:UIControlEventTouchUpInside];
 	[self.view addSubview:infoButton];
 	
+	UIButton *settingsButton = [[UIButton alloc] initWithFrame:CGRectZero];
+	settingsButton.frame = CGRectMake(scrSize.width-70, firstRect.origin.y+2.5, 25, 25);
+	[settingsButton setImage:[UIImage imageNamed:@"settings-32.png"] forState:UIControlStateNormal];
+	settingsButton.tintColor = [UIColor whiteColor];
+	[settingsButton addTarget:self action:@selector(settingsButton:) forControlEvents:UIControlEventTouchUpInside];
+	[self.view addSubview:settingsButton];
+	
 	NSLog(@"Processes:\n%@", [[SystemInfo standardInfo] getProcesses]);
 	processes = [[SystemInfo standardInfo] getProcesses];
 	processes = [self reverseArray:[processes mutableCopy]];
@@ -101,6 +108,16 @@
 -(void) infoButtn:(id)sender {
 	AboutController *conroller = [[AboutController alloc] initWithStyle:UITableViewStyleGrouped];
 	UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:conroller];
+	
+	if (IS_IPAD)
+		nav.modalPresentationStyle = UIModalPresentationFormSheet;
+	
+	[self presentViewController:nav animated:YES completion:nil];
+}
+
+-(void) settingsButton:(id)sender {
+	SettingsViewController *controller = [[SettingsViewController alloc] init];
+	UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:controller];
 	
 	if (IS_IPAD)
 		nav.modalPresentationStyle = UIModalPresentationFormSheet;

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0242580F1A027F03000F2D60 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0242580E1A027F03000F2D60 /* QuartzCore.framework */; };
+		02431BD61A13B401008583A5 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02431BD51A13B401008583A5 /* SettingsViewController.m */; };
+		02431BD91A13B535008583A5 /* settings-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 02431BD71A13B535008583A5 /* settings-32.png */; };
+		02431BDA1A13B535008583A5 /* settings-32@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 02431BD81A13B535008583A5 /* settings-32@2x.png */; };
 		024E0FCD1A0524B1006EA3BE /* iTunesArtwork1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 024E0FCC1A0524B1006EA3BE /* iTunesArtwork1024.png */; };
 		024E0FD01A05278C006EA3BE /* AboutController.m in Sources */ = {isa = PBXBuildFile; fileRef = 024E0FCF1A05278C006EA3BE /* AboutController.m */; };
 		024E0FD21A052798006EA3BE /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 024E0FD11A052798006EA3BE /* MessageUI.framework */; };
@@ -72,6 +75,10 @@
 
 /* Begin PBXFileReference section */
 		0242580E1A027F03000F2D60 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		02431BD41A13B401008583A5 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		02431BD51A13B401008583A5 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		02431BD71A13B535008583A5 /* settings-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-32.png"; sourceTree = "<group>"; };
+		02431BD81A13B535008583A5 /* settings-32@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-32@2x.png"; sourceTree = "<group>"; };
 		024E0FCC1A0524B1006EA3BE /* iTunesArtwork1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork1024.png; sourceTree = "<group>"; };
 		024E0FCE1A05278C006EA3BE /* AboutController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutController.h; sourceTree = "<group>"; };
 		024E0FCF1A05278C006EA3BE /* AboutController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutController.m; sourceTree = "<group>"; };
@@ -151,6 +158,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		02431BDB1A13B53C008583A5 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				024E0FCC1A0524B1006EA3BE /* iTunesArtwork1024.png */,
+				02D9680E1A0183C50006D4CC /* iphone-128.png */,
+				02431BD71A13B535008583A5 /* settings-32.png */,
+				02431BD81A13B535008583A5 /* settings-32@2x.png */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
 		0279903519FE8CC900B2E2C4 = {
 			isa = PBXGroup;
 			children = (
@@ -175,8 +193,7 @@
 		0279904019FE8CC900B2E2C4 /* iTop */ = {
 			isa = PBXGroup;
 			children = (
-				024E0FCC1A0524B1006EA3BE /* iTunesArtwork1024.png */,
-				02D9680E1A0183C50006D4CC /* iphone-128.png */,
+				02431BDB1A13B53C008583A5 /* Assets */,
 				0279904519FE8CC900B2E2C4 /* AppDelegate.h */,
 				0279904619FE8CC900B2E2C4 /* AppDelegate.m */,
 				0279904819FE8CC900B2E2C4 /* ViewController.h */,
@@ -189,6 +206,8 @@
 				0299FD9D1A04109400DF2A32 /* CustomCell.m */,
 				024E0FCE1A05278C006EA3BE /* AboutController.h */,
 				024E0FCF1A05278C006EA3BE /* AboutController.m */,
+				02431BD41A13B401008583A5 /* SettingsViewController.h */,
+				02431BD51A13B401008583A5 /* SettingsViewController.m */,
 				02D9682C1A0184C00006D4CC /* AFNetworking */,
 				0279904B19FE8CC900B2E2C4 /* Main.storyboard */,
 				0279904E19FE8CC900B2E2C4 /* Images.xcassets */,
@@ -387,6 +406,8 @@
 				0279904D19FE8CC900B2E2C4 /* Main.storyboard in Resources */,
 				0279905219FE8CC900B2E2C4 /* LaunchScreen.xib in Resources */,
 				0279904F19FE8CC900B2E2C4 /* Images.xcassets in Resources */,
+				02431BDA1A13B535008583A5 /* settings-32@2x.png in Resources */,
+				02431BD91A13B535008583A5 /* settings-32.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,6 +442,7 @@
 				02D968291A0184BA0006D4CC /* AFURLConnectionOperation.m in Sources */,
 				02D968271A0184BA0006D4CC /* AFNetworkActivityIndicatorManager.m in Sources */,
 				0279904419FE8CC900B2E2C4 /* main.m in Sources */,
+				02431BD61A13B401008583A5 /* SettingsViewController.m in Sources */,
 				02D968261A0184BA0006D4CC /* AFJSONRequestOperation.m in Sources */,
 				0279906919FE8D2000B2E2C4 /* Meter.m in Sources */,
 				024E0FD01A05278C006EA3BE /* AboutController.m in Sources */,

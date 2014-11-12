@@ -1,19 +1,13 @@
 //
-//  ViewController.h
-//  iTop
+//  SettingsViewController.h
+//  CPU Watchdog
 //
-//  Created by Bradley Slayter on 10/27/14.
+//  Created by Bradley Slayter on 11/12/14.
 //  Copyright (c) 2014 Flipped Bit. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import <QuartzCore/QuartzCore.h>
-#import "SystemInfo.h"
 #import "Meter.h"
-#import "CustomCell.h"
-#import "UIImageView+AFNetworking.h"
-#import "AboutController.h"
-#import "SettingsViewController.h"
 
 #define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
 #define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
@@ -22,18 +16,8 @@
 #define IS_IPHONE_6 (IS_IPHONE && [[UIScreen mainScreen] bounds].size.height == 667.0)
 #define IS_IPHONE_6PLUS (IS_IPHONE && [[UIScreen mainScreen] nativeScale] == 3.0)
 
-@interface ViewController : UIViewController <SystemInfoDelegate, UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate> {
-	NSMutableArray *meters;
-	Meter *ramMeter;
-	Meter *diskMeter;
-	
-	NSArray *processes;
-	UITableView *tableView;
-	
-	NSMutableArray *icons;
-	int iconCount;
+@interface SettingsViewController : UIViewController {
+	Meter *meter;
 }
 
-
 @end
-
